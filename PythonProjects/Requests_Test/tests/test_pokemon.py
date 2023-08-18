@@ -7,3 +7,7 @@ host='https://api.pokemonbattle.me:9104'
 def test_status_code():
     responce =requests.get(f'{host}/trainers', params={'trainer_id': 1703})
     assert responce.status_code == 200
+
+def test_part_of_answer():
+    responce = requests.get(f'{host}/trainers', params={'trainer_id': 1703})  
+    assert responce.json()['trainer_name'] == 'Leraite'
